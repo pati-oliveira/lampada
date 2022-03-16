@@ -2,7 +2,7 @@ body {
   font-family: stencil std, fantasy;
   font-size: xx-large;
   font-style: italic;
-  background: #111;
+  background: rgb(24, 23, 23);
   padding: 50px;
 }
 

@@ -1,13 +1,29 @@
 const turnOn = document.getElementById("turnOn");
-const turnOffn = document.getElementById("turnOff");
+const turnOff = document.getElementById("turnOff");
 const lamp = document.getElementById("lamp");
 
-function lampOn() {
-  lamp.src = "./img/ligada.jpg";
+function isLampBroken() {
+  return lamp.src.indexOf("quebrada") > -1;
 }
+
+function lampOn() {
+  if (!isLampBroken()) {
+    lamp.src = "./img/ligada.jpg";
+  }
+}
+
 function lampOff() {
-  lamp.src = "./img/desligada.jpg";
+  if (!isLampBroken()) {
+    lamp.src = "./img/desligada.jpg";
+  }
+}
+
+function lampBroken() {
+  lamp.src = "./img/quebrada.jpg";
 }
 
 turnOn.addEventListener("click", lampOn);
-turnOffn.addEventListener("click", lampOff);
+turnOff.addEventListener("click", lampOff);
+lamp.addEventListener("mouseover", lampOn);
+lamp.addEventListener("mouseleave", lampOff);
+lamp.addEventListener("dblclick", lampBroken);
